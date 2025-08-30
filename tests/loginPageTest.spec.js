@@ -70,5 +70,19 @@ test('Verify that user is not able to login with invalid credentials',async()=>{
             await loginPage.VerifyInvalidLoginErrorMsg('Invalid username or password');
         })
     })
+
+    test('Verify that forgot password link is working',async()=>{
+
+        await test.step('Naviagate to the loginpage',async()=>{
+            await commonPage.goto();
+        })
+        await test.step('Click the forgot password link',async()=>{
+            await loginPage.clickForgotPasswordLink();
+        })
+        await test.step('Verify the reset password page',async()=>{
+            await loginPage.verifyResetPasswordPage('Forgot Password?');
+        })
+    })
+
 });
   

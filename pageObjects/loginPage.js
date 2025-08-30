@@ -7,9 +7,11 @@ export class LoginPage{
         this.commonPage = new Common(page);
         this.email='#username';
         this.password='#password';
-        this.loginbutton='//*[@id="root"]/div[2]/div[2]/div/div[2]/div[2]/form/button';
-        this.CompanyName='//*[@id="root"]/div[2]/div[2]/div/div[1]/h1';
+        this.loginbutton=page.getByTestId('login-submit-button');
+        this.CompanyName='//*[@id="root"]/div[2]/div[3]/div/div[1]/h1';
         this.loginErrorMessage='//*[@id="root"]/div[1]/ol/li/div/div[2]';
+        this.forgotPasswordLink=page.getByTestId('forgot-password-link');
+        this.forgotPasswordPageHeader='//*[@id="root"]/div[2]/div[2]/div[2]/div[1]/h3';
     }
 
     async login(username,password){
@@ -24,5 +26,13 @@ export class LoginPage{
 
     async VerifyInvalidLoginErrorMsg(text){
         await this.commonPage.verifyText(this.loginErrorMessage,text);
+    }
+
+    async clickForgotPasswordLink(){
+        await this.commonPage.clickbutton(this.forgotPasswordLink);
+    }
+
+    async verifyResetPasswordPage(text){
+        await this.commonPage.verifyText(this.forgotPasswordPageHeader,text);
     }
 }
