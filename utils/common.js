@@ -24,9 +24,9 @@ export class Common{
 
     async type(locator,text){
        if (typeof locator === 'string') {
-        await this.page.type(locator,text);   
+        await this.page.fill(locator,text);   
     } else {
-        await locator.type(text);            
+        await locator.fill(text);            
     }
     }
 

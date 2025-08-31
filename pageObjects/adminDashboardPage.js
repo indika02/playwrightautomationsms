@@ -7,7 +7,8 @@ export class adminDashboardPage{
         this.commonPage = new Common(page);
         this.dashboardHeader='//*[@id="root"]/div[2]/div/main/div/div/h1';
         this.usernamedropdown='//*[@id="root"]/div[2]/div/header/div[2]/div[1]/div[2]';
-        this.logoutbtn='//*[@id="root"]/div[2]/div/header/div[2]/div[2]/button';
+        this.logoutbtn='//*[@id="root"]/div[2]/div/header/div[2]/div/div[1]/div[1]';
+        this.gradeDistributionProgressBar='//*[@id="root"]/div[2]/div/main/div/div/div[2]/div[1]/h3';
     }
 
     async verifyHeader(text){
@@ -19,6 +20,10 @@ export class adminDashboardPage{
 }
     async clickLogout(){
         await this.commonPage.clickbutton(this.logoutbtn);
+    }
+
+    async verifygradeDistributionProgressBar(text){
+        await this.commonPage.verifyText(this.gradeDistributionProgressBar,text);
     }
 
 }

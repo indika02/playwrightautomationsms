@@ -4,7 +4,7 @@ import { adminDashboardPage } from '../pageObjects/adminDashboardPage';
 const testData=require('../config/config.json');
 import { Common } from '../utils/common';
 
-test.describe('Login page',()=>{
+test.describe('Login page Test Cases',()=>{
 
     let page; 
     let commonPage;
@@ -45,16 +45,7 @@ test('Admin can login to the system by using valid user credentials',async()=>{
         })
     })
 
-test('Verify that Company name is correct',async()=>{
 
-        await test.step('Naviagate to the loginpage',async()=>{
-            await commonPage.goto();
-        })
-
-        await test.step('Verify the company name as EduManage Pro',async()=>{
-            await loginPage.verifyCompanyName('EduManage Pro');
-        })
-    })
 
 test('Verify that user is not able to login with invalid credentials',async()=>{
 
@@ -71,7 +62,7 @@ test('Verify that user is not able to login with invalid credentials',async()=>{
         })
     })
 
-    test('Verify that forgot password link is working',async()=>{
+test('Verify that forgot password link is working',async()=>{
 
         await test.step('Naviagate to the loginpage',async()=>{
             await commonPage.goto();
@@ -83,6 +74,18 @@ test('Verify that user is not able to login with invalid credentials',async()=>{
             await loginPage.verifyResetPasswordPage('Forgot Password?');
         })
     })
+
+test('Verify that Company name is correct',async()=>{
+
+        await test.step('Naviagate to the loginpage',async()=>{
+            await commonPage.goto();
+        })
+
+        await test.step('Verify the company name as EduManage Pro',async()=>{
+            await loginPage.verifyCompanyName('EduManage Pro');
+        })
+    })
+
 
 });
   
